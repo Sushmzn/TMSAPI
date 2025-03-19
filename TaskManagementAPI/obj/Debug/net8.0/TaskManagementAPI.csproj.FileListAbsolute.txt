@@ -6,6 +6,7 @@ C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\TaskManagementAPI.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\TaskManagementAPI.pdb
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Humanizer.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.Build.Locator.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -28,6 +29,11 @@ C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Npgsql.dll
@@ -42,6 +48,7 @@ C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.IO.Pipelines.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.Text.Json.dll
@@ -118,6 +125,8 @@ C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.csproj.CoreCompileInputs.cache
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.sourcelink.json
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\scopedcss\bundle\TaskManagementAPI.styles.css
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets\msbuild.TaskManagementAPI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -125,17 +134,9 @@ C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TaskManagementAPI.props
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TaskManagementAPI.props
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\scopedcss\bundle\TaskManagementAPI.styles.css
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskMana.0D8D9FF3.Up2Date
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\refint\TaskManagementAPI.dll
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.pdb
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\TaskManagementAPI.genruntimeconfig.cache
 C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\obj\Debug\net8.0\ref\TaskManagementAPI.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

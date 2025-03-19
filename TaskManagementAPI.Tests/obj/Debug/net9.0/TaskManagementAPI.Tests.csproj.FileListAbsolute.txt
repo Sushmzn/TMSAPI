@@ -1,0 +1,6 @@
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.AssemblyInfo.cs
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\TaskManagementAPI\TaskManagementAPI.Tests\obj\Debug\net9.0\TaskManagementAPI.Tests.sourcelink.json

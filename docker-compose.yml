@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: taskmanagement-db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: taskmanagement
+    ports:
+      - "5432:5432"
+    networks:
+      - taskmanagement-network
+    volumes:
+      - taskmanagement-db-data:/var/lib/postgresql/data
+
+  app:
+    image: tokosakurai/tmsapi:latest  # Docker Hub image for your application
+    container_name: taskmanagement-api
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=taskmanagement-db;Port=5432;Username=myuser;Password=mypassword;Database=taskmanagement"
+    ports:
+      - "8080:8080"
+    networks:
+      - taskmanagement-network
+
+networks:
+  taskmanagement-network:
+    driver: bridge
+
+volumes:
+  taskmanagement-db-data:
+    driver: local

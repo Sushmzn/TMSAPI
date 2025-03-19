@@ -4,6 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TaskManagementAPI.Constants;
 using TaskManagementAPI.Data;
+using TaskManagementAPI.Interfaces;
+using TaskManagementAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -91,6 +93,7 @@ builder.Services.AddAuthorization(options =>
 
 // Register JwtTokenService for dependency injection
 builder.Services.AddTransient<JwtTokenService>();
+builder.Services.AddScoped<IUnitOfWork>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
