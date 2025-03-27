@@ -1,0 +1,46 @@
+name: dockercompose13529852845133979825
+services:
+  app:
+    container_name: taskmanagement-api
+    depends_on:
+      db:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Host=taskmanagement-db;Port=5432;Username=myuser;Password=mypassword;Database=taskmanagement
+    image: tokosakurai/tmsapi:latest
+    networks:
+      taskmanagement-network: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+  db:
+    container_name: taskmanagement-db
+    environment:
+      POSTGRES_DB: taskmanagement
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+    image: postgres:latest
+    networks:
+      taskmanagement-network: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: taskmanagement-db-data
+        target: /var/lib/postgresql/data
+        volume: {}
+networks:
+  taskmanagement-network:
+    name: dockercompose13529852845133979825_taskmanagement-network
+    driver: bridge
+volumes:
+  taskmanagement-db-data:
+    name: dockercompose13529852845133979825_taskmanagement-db-data
+    driver: local

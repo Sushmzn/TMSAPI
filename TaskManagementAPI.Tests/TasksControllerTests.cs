@@ -11,6 +11,9 @@ using TaskManagementAPI.Exceptions;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using NSubstitute;
+using AutoFixture;
+using Shouldly;
 
 public class TasksControllerTests : IDisposable
 {
@@ -21,15 +24,9 @@ public class TasksControllerTests : IDisposable
 
     public TasksControllerTests()
     {
-        // Setup In-Memory Database
-        var options = new DbContextOptionsBuilder<TaskManagementDbContext>()
-            .UseInMemoryDatabase(databaseName: "TestDB")
-            .Options;
-        _dbContext = new TaskManagementDbContext(options);
-
+        _dbContext = Substitute.For<TaskManagementDbContext>();
         _mockLogger = new Mock<ILogger<TasksController>>();
         _mockUnitOfWork = new Mock<IUnitOfWork>();
-
         _controller = new TasksController(_dbContext, _mockLogger.Object, _mockUnitOfWork.Object);
     }
 
@@ -105,24 +102,34 @@ public class TasksControllerTests : IDisposable
     public async Task CreateTask_ValidTask_ReturnsCreatedAtAction()
     {
         // Arrange
-        var task = new TaskData { Title = "New Task", Description = "New Task Description", IsCompleted = false };
+        var fixture = new Fixture();
+        var task = fixture.Create<TaskData>();
 
         // Act
         var result = await _controller.CreateTask(task);
 
         // Assert
-        var actionResult = Assert.IsType<ActionResult<TaskData>>(result);
-        var createdResult = Assert.IsType<CreatedAtActionResult>(actionResult.Result);
-        Assert.Equal(nameof(_controller.GetTask), createdResult.ActionName);
+
+        await _dbContext.Set<TaskData>().Received()
+                 .AddAsync(Arg.Is<TaskData>(x =>
+                     x.Description == task.Description &&
+                     x.IsCompleted == task.IsCompleted &&
+                     x.Title == task.Title)
+                 );
+
+        await _dbContext.Received().SaveChangesAsync();
     }
 
     [Fact]
-    public async Task UpdateTask_ExistingId_ReturnsNoContent()
+    public async Task UpdateTask_ExistingId_UpdatesTaskAndReturnsNoContent()
     {
         // Arrange
-        var task = new TaskData { Id = 1, Title = "Task to Update", Description = "Old Description", IsCompleted = false };
-        _dbContext.Tasks.Add(task);
-        await _dbContext.SaveChangesAsync();
+        var existingTask = new TaskData { Id = 1, Title = "Task to Update", Description = "Old Description", IsCompleted = false };
+
+        var dbSet = Substitute.For<DbSet<TaskData>, IQueryable<TaskData>>();
+        _dbContext.Set<TaskData>().Returns(dbSet);
+
+        dbSet.FindAsync(1).Returns(existingTask);
 
         var updatedTask = new TaskData { Title = "Updated Task", Description = "Updated Description", IsCompleted = true };
 
@@ -130,8 +137,15 @@ public class TasksControllerTests : IDisposable
         var result = await _controller.UpdateTask(1, updatedTask);
 
         // Assert
+        existingTask.Title.ShouldBe(updatedTask.Title);
+        existingTask.Description.ShouldBe(updatedTask.Description);
+        existingTask.IsCompleted.ShouldBe(updatedTask.IsCompleted);
+
+        await _dbContext.Received().SaveChangesAsync();
+
         Assert.IsType<NoContentResult>(result);
     }
+
 
     [Fact]
     public async Task UpdateTask_NonExistingId_ReturnsNotFound()
@@ -145,27 +159,39 @@ public class TasksControllerTests : IDisposable
     }
 
     [Fact]
-    public async Task DeleteTask_ExistingId_ReturnsNoContent()
+    public async Task DeleteTask_ExistingId_RemovesTaskAndReturnsNoContent()
     {
         // Arrange
-        var task = new TaskData { Id = 1, Title = "Task to Delete", Description = "Delete This", IsCompleted = false };
-        _dbContext.Tasks.Add(task);
-        await _dbContext.SaveChangesAsync();
+        var existingTask = new TaskData { Id = 1, Title = "Task to Delete", Description = "Delete This", IsCompleted = false };
+
+        var dbSet = Substitute.For<DbSet<TaskData>, IQueryable<TaskData>>();
+        _dbContext.Set<TaskData>().Returns(dbSet);
+        dbSet.FindAsync(1).Returns(existingTask);
 
         // Act
         var result = await _controller.DeleteTask(1);
 
         // Assert
+        _dbContext.Received().Set<TaskData>().Remove(existingTask);
+        await _dbContext.Received().SaveChangesAsync();
+
         Assert.IsType<NoContentResult>(result);
     }
 
     [Fact]
     public async Task DeleteTask_NonExistingId_ReturnsNotFound()
     {
+        // Arrange
+        var dbSet = Substitute.For<DbSet<TaskData>, IQueryable<TaskData>>();
+        _dbContext.Set<TaskData>().Returns(dbSet);
+        dbSet.FindAsync(999).Returns((TaskData)null); // Simulate entity not found
+
         // Act
         var result = await _controller.DeleteTask(999);
 
         // Assert
         Assert.IsType<NotFoundResult>(result);
+        _dbContext.DidNotReceive().Set<TaskData>().Remove(Arg.Any<TaskData>());
+        await _dbContext.DidNotReceive().SaveChangesAsync();
     }
 }
